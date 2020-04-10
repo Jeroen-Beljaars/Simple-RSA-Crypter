@@ -15,7 +15,7 @@
         <JFXTextField fx:id="valueOfN" layoutX="445.0" layoutY="64.0" prefHeight="37.0" prefWidth="323.0" promptText="Value for N" />
         <JFXTextArea fx:id="msgToEncrypt" layoutX="36.0" layoutY="38.0" prefHeight="191.0" prefWidth="390.0" promptText="Enter the text you want to encrypt here" />
         <Button fx:id="btnEncrypt" disable="true" layoutX="330.0" layoutY="482.0" mnemonicParsing="false" onAction="#handleEncryptClick" prefHeight="39.0" prefWidth="230.0" text="Encrypt (Step 3)" />
-        <Text fill="#ffff8d" layoutX="446.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose two distinct prime numbers" textAlignment="CENTER" wrappingWidth="340.9501953125">
+        <Text fill="#ffff8d" layoutX="446.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter a big value for N" textAlignment="CENTER" wrappingWidth="340.9501953125">
             <font>
                 <Font name="System Bold" size="13.0" />
             </font>

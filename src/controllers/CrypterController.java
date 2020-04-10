@@ -85,6 +85,15 @@ public class CrypterController {
             p *= factors.get(i);
         }
 
+        if (factors.size() > 2 && !MathManager.isNumberPrime(p)) {
+            this.generateAlert(
+                    "Error",
+                    "Invalid N Provided",
+                    "N Could not be factorized into two valid primes, please pick another N"
+            ).showAndWait();
+            return;
+        }
+
         // Get the last prime
         q = factors.get(factors.size() - 1);
         valueOfP.setText(String.valueOf(this.p));
@@ -111,7 +120,25 @@ public class CrypterController {
         primesForRange.removeAll(factorsOfEulerTotient);
 
         Random rand = new Random();
-        long e = primesForRange.get(rand.nextInt(primesForRange.size()));
+
+        long e = -1;
+        while(primesForRange.size() > 0) {
+            e = primesForRange.get(rand.nextInt(primesForRange.size()));
+            if(MathManager.gcdByEuclidsAlgorithm(e, eulerTotient) == 1) {
+                break;
+            }
+            primesForRange.remove(e);
+            e = -1;
+        }
+
+        if (e == -1) {
+            generateAlert("error", "No suitable e found",  "Please enter another n in the previous step.");
+            valueOfP.setText("");
+            valueOfQ.setText("");
+            btnGenerateE.setDisable(true);
+            step1ExecutionTime.setText("");
+        }
+
         KeyManager.setE(BigInteger.valueOf(e));
 
         valueOfE.setText(String.valueOf(e));
@@ -136,7 +163,7 @@ public class CrypterController {
 
         for (long character : characters) {
             BigInteger m = BigInteger.valueOf(character);
-            result.append(m.pow(e.intValue()).remainder(n).toString() + " ");
+            result.append(m.pow(e.intValue()).mod(n).toString() + " ");
         }
         result.deleteCharAt(result.length() - 1);
 

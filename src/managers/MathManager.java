@@ -30,8 +30,23 @@ public class MathManager {
         return factors;
     }
 
+    public static boolean isNumberPrime(long n) {
+        for (int i = 2; i < n; i++)
+            if (n % i == 0)
+                return false;
+
+        return true;
+    }
+
     public static long eulerTotient(long p, long q) {
         return (p - 1) * (q - 1);
+    }
+
+    public static long gcdByEuclidsAlgorithm(long n1, long n2) {
+        if (n2 == 0) {
+            return n1;
+        }
+        return gcdByEuclidsAlgorithm(n2, n1 % n2);
     }
 
     public static List<Long> getPrimesRange(long begin, long end) {
@@ -69,7 +84,7 @@ public class MathManager {
         double k = 1;
         double result;
         while (true) {
-            result = (1.0 + k * ((double) eulerTotient))/(double) e;
+            result = (1.0 + k * ((double) eulerTotient)) / (double) e;
             if (result % 1 == 0) {
                 break;
             }

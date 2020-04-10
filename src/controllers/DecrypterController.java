@@ -103,6 +103,15 @@ public class DecrypterController {
 
         long eulerTotient = MathManager.eulerTotient(p, q);
 
+        if (MathManager.gcdByEuclidsAlgorithm(eulerTotient, e) != 1) {
+            this.generateAlert(
+                    "Error",
+                    "Invalid E provided",
+                    "The gcd between e and  φ(n) is not 1"
+            ).showAndWait();
+            return;
+        }
+
         this.d = MathManager.calculateExponentD(e, eulerTotient);
 
         valueOfD.setText(String.valueOf(d));
