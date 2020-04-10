@@ -1,5 +1,3 @@
-package controllers;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,8 +8,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../ui/main.fxml"));
-        primaryStage.setTitle("Hello World");
+        Parent root = FXMLLoader.load(getClass().getResource("ui/main.fxml"));
+        primaryStage.setTitle("RSA Crypter");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
