@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/RSA_Crypter_jar</output-path>
     <root id="archive" name="RSA-Crypter.jar">
       <element id="module-output" name="RSA-Crypter" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../jfoenix-8.0.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/dependencies/jfoenix-8.0.8.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
